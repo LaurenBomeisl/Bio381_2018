@@ -1,8 +1,11 @@
 ---
-title: "Untitled"
-output: html_document
+title: "Lauren Bomeisl"
+output: 
+  prettydoc::html_pretty:
+    theme: leonids
+    highlight: github
 ---
-
+<img src="sthelen.jpg" width="200" height="200" />
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
@@ -10,4 +13,5 @@ knitr::opts_chunk$set(echo = TRUE)
 ## R Markdown
 
 *bold*
-**italics**
+**italics** 
+
