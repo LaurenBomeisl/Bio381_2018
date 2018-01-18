@@ -1,17 +1,35 @@
 ---
-title: "Lauren Bomeisl"
+title: 'Bio 381 Lauren Bomeisl'
+
+
 output: 
   prettydoc::html_pretty:
     theme: leonids
     highlight: github
 ---
-<img src="sthelen.jpg" width="200" height="200" />
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+ 
+<git clone https://github.com/renyunz/leonids>
+<cd leonids>
+<jekyll server>
+ 
 
-*bold*
-**italics** 
+
+<img src="sthelen.jpg" width="300" height="300" />
+
+#Welcome! Stay A While!
+* Contact: lauren.bomeisl@uvm.edu 
+
+## About Lauren
+Lauren is a first year PhD student working in Dr. Eric Roy's Nutrient Cycling and Ecological Design (NCED) lab. She is broadly interested in agronomic, socio-economic, and environmental impacts of resource recovery and reuse (RRR) systems. More specifically, her research is focused on agronomic characteristics that result from the application of fertilizer products derived from organic waste. Lauren has previously worked with tropical P-retentive soils, and is also interested in observing how soil quality can be restored to enhance yield efficiency through the use of nutrient recovered products. Additionally, the NCED lab is developing a spatial analysis of Phosphorus supply and demand within a region to inform sustainable RRR business models. Lauren is planning to use R for statistical analyses regarding soil, crop, and leachate characterization. 
+
+
+
+##Nutrient Cycling and Ecological Design Lab
+[Check us out!](http://nced.weebly.com/)
+
 
