@@ -25,7 +25,7 @@ knitr::opts_chunk$set(echo = TRUE)
 * Contact: lauren.bomeisl@uvm.edu 
 
 ## About Lauren
-MS Water Resources Engineering, Oregon State University
+MS Water Resources Engineering, Oregon State University  
 BS Physics, SUNY Geneseo
 
 Lauren is a first year PhD student working in Dr. Eric Roy's Nutrient Cycling and Ecological Design (NCED) lab. She is broadly interested in agronomic, socio-economic, and environmental impacts of resource recovery and reuse (RRR) systems. More specifically, her research is focused on agronomic characteristics that result from the application of fertilizer products derived from organic waste. Lauren has previously worked with tropical P-retentive soils, and is also interested in observing how soil quality can be restored to enhance yield efficiency through the use of nutrient recovered products. Additionally, the NCED lab is developing a spatial analysis of Phosphorus supply and demand within a region to inform sustainable RRR business models. Lauren is planning to use R for statistical analyses regarding soil, crop, and leachate characterization. 
