@@ -8,7 +8,7 @@ output:
     highlight: github
   html_document:
     include:
-      after_body: footertrees.gif
+      after_body: bottombanner.jpg
 ---
 
 ```{r setup, include=FALSE}
@@ -33,7 +33,10 @@ BS Physics, SUNY Geneseo
 
 Lauren is a first year PhD student working in Dr. Eric Roy's Nutrient Cycling and Ecological Design (NCED) lab. She is broadly interested in agronomic, socio-economic, and environmental impacts of resource recovery and reuse (RRR) systems. More specifically, her research is focused on agronomic characteristics that result from the application of fertilizer products derived from organic waste. Lauren has previously worked with tropical P-retentive soils, and is also interested in observing how soil quality can be restored to enhance yield efficiency through the use of nutrient recovered products. Additionally, the NCED lab is developing a spatial analysis of Phosphorus supply and demand within a region to inform sustainable RRR business models. Lauren is planning to use R for statistical analyses regarding soil, crop, and leachate characterization. 
 
+<img src="bottombanner.jpg" width="800" height="300" />
 
+##Assignments
+* Assignment 1: [create website](https://laurenbomeisl.github.io/Bio381_2018/)
 
 ##Nutrient Cycling and Ecological Design Lab
 [Check us out!](http://nced.weebly.com/)
