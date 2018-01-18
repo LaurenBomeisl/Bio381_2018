@@ -3,12 +3,12 @@ title: 'Bio 381 Lauren Bomeisl'
 
 
 output: 
-  html_document:
-    include:
-      after_body: footer.html
   prettydoc::html_pretty:
     theme: leonids
     highlight: github
+  html_document:
+    include:
+      after_body: footertrees.gif
 ---
 
 ```{r setup, include=FALSE}
