@@ -1,0 +1,101 @@
+---
+title: "Homework 3"
+author: "LaurenBomeisl"
+date: "3/20/2018"
+output:
+  beamer_presentation: 
+    colortheme: beetle
+    incremental: yes
+    theme: Madrid
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+```
+
+
+## My Spring Break
+
+This is a small peek into my travels over spring break. I'll be sharing my intentions for this trip and some beautiful photos from my journey.
+
+## Intentions
+
+>-begin to close a chapter of my life
+>-heal from stress through solitude in nature
+>-connect with more people by traveling alone
+
+
+## Objectives for the trip
+
+- Come to a consensus with my former advisor on what story is most compelling from my MS prior to submitting for publication
+- Backpack from Waipio valley to Waimanu valley
+- Take the train up the pacific coast from LA to SLO
+
+##Reframing my MS thesis
+
+\color{violet} It was so good to see my former advisor in Portland, Oregon.  I'm very excited for her-- she's having a baby this June! 
+
+We had a really productive meeting, and discussed the following:
+
+>- conceptual diagrams (see homework #2) 
+>- reframing my research questions through a different lens while maintaining consistent objectives 
+>- journals/target audience
+
+
+##Backpacking in Hawaii (The Big Island)
+
+\color{blue}Unfortunately the rainy season was in full force by the time I arrived in Hawaii. I was hesitant to follow through on my plans to backpack along a steep ridge (heavily eroded due to rain) to a super remote valley (risk of flash flooding) knowing the only way out if in need of help would be helicopter rescue. Once I got to the island, I changed my plans completely. I was a little bummed at first, having considered this hike for the last 5 years, but I'm so glad I changed my plans and adapted to the weather-- sometimes you just gotta follow the wave!
+
+##Waipio Valley -- Top View
+
+ \begin{picture}(200,250)
+ \put(200,75){\includegraphics[height=6cm]
+ {Topview.jpg}}
+ \put(00,200){\begin{minipage}[t]{.5\linewidth}
+ While I didn't make it to Waimanu, 
+ I still hiked down to the valley, 
+ and enjoyed a relaxing day in my hammock.
+  \put(-170,-120){\includegraphics[height=3.5cm]
+ {valleyfloor.jpg}}
+ \end{minipage}}
+ \end{picture}
+ 
+ 
+ ##Waipio Valley -- Floor View
+
+ \begin{picture}(200,250)
+ \put(10,60){\includegraphics[height=6cm]
+ {Hammock.jpg}}
+ \put(40,200){\begin{minipage}[t]{.5\linewidth}
+ Hangin out
+ \end{minipage}}
+ 
+ \put(200,20){\includegraphics[height=8cm]
+ {River.jpg}}
+ \put(220,40){\begin{minipage}[t]{.5\linewidth}
+ \color{white}by the river...
+ \end{minipage}}
+ \end{picture}
+ 
+ 
+ 
+ 
+##Maui--Iao Valley
+
+ \begin{picture}(200,250)
+ \put(20,200){\begin{minipage}[t]{.4\linewidth}
+I also hopped on over to Maui to visit a friend who is living in Haiku. I was able to take a trip to the wettest place on earth-- Iao Valley! The landscape here is constantly changing due to water erosion-- the Iao valley monument is a testament to the power of water!
+ \end{minipage}}
+ \put(190,30){\includegraphics[height=8cm]
+ {Monument.jpg}}
+
+ \end{picture}
+
+
+##Onto LA
+
+I'm on my flight to LA now, and I'll be taking the train to SLO tomorrow! I'm looking forward to grading critical reflections while staring out onto the rugged pacific coast.
+
+
+
