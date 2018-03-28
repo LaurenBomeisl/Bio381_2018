@@ -1,0 +1,57 @@
+---
+title: "Homework 5"
+author: "LaurenBomeisl"
+date: "2/14/2018"
+output: html_document
+---
+
+###Problem 1
+Search for 2 or more spaces and replace with a comma
+```
+Find: \s{2,}
+Replace: ,
+```
+
+
+###Problem 2
+Find the first and second group of one or more word characters followed by a comma, capture the first and second group of characters with out the comma by excluding the comma from the parenthesis in the find. Find and capture all remaining characters in the line using .*  
+```
+Find: (\w+), (\w+), (.*)
+Replace: \2 \1 (\3)
+```
+Order Second capture followed by first capture followed by third capture surrounded by parenthesis. 
+
+
+###Problem 3
+Replace the space after mp3 with a line break
+```
+Find: mp3 
+Replace: mps\n
+```
+Capture the first four digits, whatever characters that follow after the space and before .mp3, and capture .mp3, and capture whatever characters comes after the first four digits.
+Replace entire line with whatever characters came before .mp3 and after the number, then underscore, then the four digit number, then .mp3
+```
+Find: (\d{4}) (.*)(.mp3)
+Replace: \2_\1\3
+```
+
+###Problem 4
+
+Identify the four terms as seperated by the parenthesis on each line. For each line, capture the first character of the first term, the second term, and the fourth term. Replace entire line with the first capture, underscore, the second capture, comma, and the third capture.
+
+```
+Find: (\w)\w+,(\w+),\d+.\d+,(\d+)
+Replace: \1_\2,\3
+```
+
+For the second part, the find and replace is identical, except instead of capturing the full second term, only the first four characters of the second term are captured.
+
+```
+Find: (\w)\w+,(\w{4})\w+,\d+.\d+,(\d+)
+Replace: \1_\2,\3
+```
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
