@@ -39,7 +39,7 @@ Lauren is a first year PhD student working in Dr. Eric Roy's Nutrient Cycling an
 * Assignment 1: [create website](https://laurenbomeisl.github.io/Bio381_2018/)
 * Assignment 2: [create flowcharts](180309_Homework_02.html)
 * Assignment 3: [Beamer presentation](Homework_3.pdf)
-* Assignment 4: [Matrix Operations]()
+* Assignment 4: [Matrix Operations](HW4.html)
 * Assignment 5: [Find and Replace](Homework_5.html)
 
 ##Nutrient Cycling and Ecological Design Lab

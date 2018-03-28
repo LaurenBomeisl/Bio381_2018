@@ -1,0 +1,138 @@
+---
+title: "Homework 4"
+author: "LaurenBomeisl"
+date: "2/7/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+
+```{r}
+  #Problem 1
+  #define initial variables
+  x <- 1.1
+  a <- 2.2
+  b <- 3.3
+  
+  #Part a-c
+  z <- x^(a^b)
+  print(z)
+  z <- (x^a)^b
+  print(z)
+  z <- 3*(x^3)+2*(x^2)+1
+  print(z) 
+  #part d -- can be applied to any value
+  digit2 <- as.numeric(strsplit(as.character(z),"")[[1]])
+  digit2 <- digit2[!is.na(digit2)]
+  print(digit2[2])
+  
+  #using floor for value z from part c
+  print(floor(10*(z-floor(z))))
+  
+  
+  
+  
+  ##Problem 2 parts a-c
+  a <- c(seq(1,7),seq(7,1))
+  print(a)
+  b <- c(rep(x=1:5,times=1:5))
+  print(b)
+  c <- c(rep(x=5:1,times=1:5))
+  print(c)
+  
+  
+  
+  
+  ##Problem 3
+  
+  ##create a vector of two random uniform numbers to represent cartesian coordinates (x,y)
+  xy <- c(runif(2))
+  print(xy)
+  #calculate polar coordinates
+  theta <- atan(xy[2]/xy[1])
+  r <- xy[1]/cos(theta)
+  polar <- c(r,theta)
+  print(polar)
+  
+  
+  
+  
+  #problem 4    
+  queue <- c("sheep", "fox", "owl", "ant")
+  print (queue)
+  ##part a
+  queue <- c(queue, "serpent")
+  print(queue)
+  ##part b
+  queue<-queue[-1]
+  print(queue)
+  ##part c
+  queue<-c("donkey",queue)
+  print(queue)
+  ##part d
+  queue<- queue[-5]
+  print(queue)
+  ##part e
+  queue<-queue[-3]
+  print(queue)
+  ##part f
+  queue<-c(queue[1:2],"aphid",queue[3])
+  print(queue)
+  ##part
+  which(queue[]=="aphid")
+  
+  
+  #problem 5
+  n <- c(1:100)
+  n[n%%2 !=0 & n%%3 != 0 & n%%7 !=0]
+  
+  
+  #problem 6
+  ##part a
+  z=runif(1000)
+  
+  za<-length(z[z<.1])
+  zb<-length(z[z>.9])
+  zc<-length(z[.45<z & z<.55])
+  zp<-c(za,zb,zc)/length(z)
+  print(zp)
+  
+  #part b
+  z<-matrix(rep(x=z,times=4),nrow=4,ncol=1000,byrow=TRUE)
+  z[1,]<-log10(z[1,])
+  z[2,]<-z[2,]^2
+  z[3,]<-exp(z[3,])
+  z[4,]<-sqrt(z[4,])
+  
+  #partc
+  z1a<-length(z[1,][z[1,]<.1])
+  z1b<-length(z[1,][z[1,]>.9])
+  z1c<-length(z[1,][.45<z[1,] & z[1,]<.55])
+  zp1<-c(z1a,z1b,z1c)/length(z[1,])
+  print(zp1)
+  
+  z2a<-length(z[2,][z[2,]<.1])
+  z2b<-length(z[2,][z[2,]>.9])
+  z2c<-length(z[2,][.45<z[2,] & z[2,]<.55])
+  zp2<-c(z2a,z2b,z2c)/length(z[2,])
+  print(zp2)
+  
+  z3a<-length(z[3,][z[3,]<.1])
+  z3b<-length(z[3,][z[3,]>.9])
+  z3c<-length(z[3,][.45<z[3,] & z[3,]<.55])
+  zp3<-c(z3a,z3b,z3c)/length(z[3,])
+  print(zp3)
+  
+  z4a<-length(z[4,][z[4,]<.1])
+  z4b<-length(z[4,][z[4,]>.9])
+  z4c<-length(z[4,][.45<z[4,] & z[4,]<.55])
+  zp4<-c(z4a,z4b,z4c)/length(z[4,])
+  print(zp4)
+  
+```
+
