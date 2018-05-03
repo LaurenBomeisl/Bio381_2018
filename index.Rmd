@@ -30,7 +30,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Presentation Resources
 
-  * [R Markdown](ElevatrsPresentation.html)
+  * [R Markdown](ElevatrPresentation.html)
   * [API Website](https://aws.amazon.com/public-datasets/terrain/)
   * [EPSG Website](http://www.epsg-registry.org/)
 
