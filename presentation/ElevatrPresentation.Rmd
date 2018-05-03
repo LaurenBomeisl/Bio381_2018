@@ -122,7 +122,7 @@ and illustrate your Raster!
              set_api_key("https://aws.amazon.com/public-datasets/terrain/"),
                   z=5)   
     
-  plot(raster, Main="Digital Elevation Model")
+  plot(raster)
   # Once you can see what you're doing, play with the zoom!
   
   # we can also choose a specific range to observe
@@ -142,10 +142,10 @@ and illustrate your Raster!
 
 ```{r}
   contour<-contour(raster,nlevels=8)
-  str(contour)
+
   #Play with the nlevels to your desired detail
   
-  contourplot<-contourplot(raster,labels=FALSE)
+  contourplot(raster,labels=FALSE)
   
 ```
 
