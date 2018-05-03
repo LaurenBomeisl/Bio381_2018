@@ -82,7 +82,12 @@
   # view elevation through color scale, try playing with the zoom
   plot(raster)
   
+  # the distribution of values in the raster
+  hist(raster, main="Distribution of elevation values", 
+       col= "purple", 
+       maxpixels=10000)
   
+  ############################################
   
   
   ############################################
@@ -90,6 +95,7 @@
   contour<-contour(raster,nlevels=8)
   contourplot(raster)
   
+  rasterContour <- raster + contour
   
   overlay(contour,raster,
           fun <- function(x,y) {return(x+y)
@@ -117,7 +123,7 @@
   maxpointx<-elev$x[which.max(elev$elevation)]
   maxpointy<-elev$y[which.max(elev$elevation)]
 
-  cell<-cellFromRow(raster,which.max(elev$elevation))
+  cell<-cellFromRow(elev,which.max(elev$elevation))
   
     # pass flow direction output and max elevation coordinate through flowPath
   flowPath(flowdir,cell)
