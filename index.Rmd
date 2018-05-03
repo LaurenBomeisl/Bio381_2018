@@ -27,6 +27,14 @@ knitr::opts_chunk$set(echo = TRUE)
 #Welcome! Stay A While!
 * Contact: lauren.bomeisl@uvm.edu 
 
+
+## Presentation Resources
+
+  * [R Markdown](ElevatrsPresentation.html)
+  * [API Website](https://aws.amazon.com/public-datasets/terrain/)
+  * [EPSG Website](http://www.epsg-registry.org/)
+
+
 ## About Lauren
 MS Water Resources Engineering, Oregon State University  
 BS Physics, SUNY Geneseo
@@ -36,8 +44,8 @@ Lauren is a first year PhD student working in Dr. Eric Roy's Nutrient Cycling an
 <img src="bottombanner.jpg" width="800" height="300" />
 
 ##Assignments
-* Assignment 1: [create website](https://laurenbomeisl.github.io/Bio381_2018/)
-* Assignment 2: [create flowcharts](180309_Homework_02.html)
+* Assignment 1: [Create website](https://laurenbomeisl.github.io/Bio381_2018/)
+* Assignment 2: [Create flowcharts](180309_Homework_02.html)
 * Assignment 3: [Beamer presentation](Homework_3.pdf)
 * Assignment 4: [Matrix Operations](HW4.html)
 * Assignment 5: [Find and Replace](Homework_5.html)

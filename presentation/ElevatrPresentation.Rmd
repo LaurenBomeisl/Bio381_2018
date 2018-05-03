@@ -1,0 +1,165 @@
+---
+title: "ElevatrPresentation"
+author: "LaurenBomeisl"
+date: "5/3/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Start with Preliminaries
+```{r echo=T, warning=FALSE}
+  library(elevatr)  # for elevation inqueries
+  library(sp)  # for spatial dataset classification
+  library(rgdal)  # for transformation
+  library(raster)  # for raster plotting
+  library(lattice)  # for contour plotting
+
+```
+
+#### Identify application programming interface for raster creation
+
+```{r}
+set_api_key("https://aws.amazon.com/public-datasets/terrain/")
+```
+
+
+#### To begin, choose your own adventure!
+
+```{r}
+  #northwest coordinates
+  maxlat<- 47.7
+  minlong<- -121.1
+  #southeast coordinates
+  minlat<- 47.3
+  maxlong<- -120.5
+  
+  #determine time zone for transformation
+  epsg<-"+init=EPSG:4410"
+```
+
+
+#### Why is the time zone (epsg code) important? Projection required to identify gravitational threshold//sea level
+
+```{r}
+
+  # set seed for reproducible results
+  set.seed(76)
+  # set number of iterations (the higher the greater resolution)
+  n<- 200
+
+```
+
+
+#### Creating your spatial dataset from scratch
+
+```{r}
+  spCoord <- SpatialPoints(data.frame(
+    x = runif(n, min = minlong, max = maxlong), 
+    y = runif(n, min = minlat, max = maxlat)),
+    proj4string = CRS("+proj=longlat"))
+  summary(spCoord) # notice projection = false
+
+```
+
+
+#### Transform coordinate system
+
+```{r}
+  # Set Coordinate Reference System using the epsg code, based UTM zone
+  sp <-spTransform(spCoord,CRS(epsg))
+  summary(sp)    # notice projection now = true
+```
+
+
+#### If read in file from csv, how can projection be checked?
+
+```{r}
+  is.projected(sp) # check to make sure the data frame was projected
+  proj4string(sp)  #query CRS projection
+  projection(sp)
+```
+
+
+#### Compare geographic vs. projected coordinate system
+
+```{r}
+  plot(spCoord, axes=TRUE)
+  plot(sp, axes=TRUE)
+```
+
+
+#### Now let's set up a spatial dataframe to access elevation data
+
+```{r}
+  spdf<-SpatialPointsDataFrame(sp, data.frame(sp),
+                         proj4string=proj4string(sp),
+                         bbox = NULL)
+    summary(spdf)
+    # now our dataset is in a format that can be used to query elevation
+    elev<-get_elev_point(spdf,
+                       prj = proj4string(spdf),
+                       src = "epqs")
+    #note: defaults to mapzen, but as of this past January this source is no longer an option, thus we will use the Elevation Point Query Service (epqs)
+```
+
+
+#### Tripple check projection, check for NA elevation values,
+and illustrate your Raster!
+
+```{r}
+  # tripple check projection
+  is.projected(elev)
+  # ensure there are no NA elevation values from query
+  !is.na(elev$elevation)
+  summary(elev)
+  
+    raster<-get_elev_raster(spdf,elev$elevation, 
+                            prj = proj4string(elev), 
+                            src = "aws",
+             set_api_key("https://aws.amazon.com/public-datasets/terrain/"),
+                  z=5)   
+    
+  plot(raster)
+  # Once you can see what you're doing, play with the zoom!
+  
+```
+
+
+### Now that we have a projected raster, we can play with lattice!
+
+```{r}
+  contour<-contour(raster,nlevels=8)
+  #Play with the nlevels to your desired detail
+  contourplot(raster)
+```
+
+
+#### We can also evaluate geographic/terrain characteristics
+
+```{r}
+  # What is the minimum or maximum slope in this grid?
+  terrain(raster,opt = 'slope')
+    # terrain() can also be used to observe aspect ratio, and flow direction
+    # or to evaluate resolution via the terrain ruggedness index,
+    # topographic position index, roughness, and flow direction 
+```
+
+
+#### Plot a histogram to consider potential for dominant biological environments
+
+```{r}
+    histogram(raster)
+
+```
+
+
+
+
+```{r}
+
+```
+
+
