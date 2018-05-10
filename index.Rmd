@@ -49,6 +49,9 @@ Lauren is a first year PhD student working in Dr. Eric Roy's Nutrient Cycling an
 * Assignment 3: [Beamer presentation](Homework_3.pdf)
 * Assignment 4: [Matrix Operations](HW4.html)
 * Assignment 5: [Find and Replace](Homework_5.html)
+* Assignment 6: [Data Distributions](Homework6.html)
+* Assignment 7/8: [Exploring a Hypothesis](Homework7.html)
+* Assignment 10: [Batch Processing](Homework10.html)
 
 ##Nutrient Cycling and Ecological Design Lab
 [Check us out!](http://nced.weebly.com/)

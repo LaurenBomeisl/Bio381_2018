@@ -1,0 +1,119 @@
+z <- read.table("BIO381_data.csv",header=TRUE,sep=",", stringsAsFactors=FALSE)
+
+# normpars$loglik, want the most positive value
+
+str(z)
+summary(z)
+
+library(ggplot2) # for graphics
+library(MASS) # for maximum likelihood estimation
+
+######################
+# quick and dirty, a truncated normal distribution to work on the (fake data) solution set
+# z naming not required below because data read in
+#z <- rnorm(n=3000,mean=0.2)
+#z <- data.frame(1:3000,z)
+#####################
+
+  #identify column titles (headers) for columns of data as per excel set-up
+  names(z) <- list("ID","manure","tillage","yield")
+  #remove rows zero values in the yield column from this dataset
+  z <- z[z$yield>0,]
+  #display the structure of this object (i.e. column titles followed by column data
+  str(z)
+  #summary of subsetted second column 
+  summary(z$yield)
+
+  #plot histogram
+  #look up how this density function called with elipses works??
+  p1 <- ggplot(data=z, aes(x=yield, y=..density..)) +
+  geom_histogram(color="grey60",fill="cornsilk",size=0.2,binwidth=.5) 
+  print(p1)
+  
+  #plot a dotted line to represent the empirical density curve
+  p1 <-  p1 +  geom_density(linetype="dotted",size=0.75)
+  print(p1)
+  
+  #fit a normal distribution of yield data to capture estimates for fit parameters (mean and sd)
+  normPars <- fitdistr(z$yield,"normal")
+  #provide normal fit parameters -- first two columns printed, mean and sd, with standard deviation of both mean and sd in the second row
+  print(normPars)
+  
+  #show full object info created from fit with additional info beyond mean and sd
+  str(normPars)
+  #print estimate of mean ??
+  normPars$estimate["mean"] # note structure of getting a named attribute
+  #fit parameters are printed with headers (vector with two elements)
+  
+  ##create names for estimated normal fit parameters
+  meanML <- normPars$estimate["mean"]
+  sdML <- normPars$estimate["sd"]
+  #capture maximum variable (yield) and define range using count of total elements in column
+  xval <- seq(0,max(z$yield),len=length(z$yield))
+  #plot normal probability density using stat_function
+  #x values defined by range, y values defined by stat_function operation: args=normal fit parameters
+  stat <- stat_function(aes(x = xval, y = ..y..), 
+                        fun = dnorm, colour="red", 
+                        n = length(z$yield), 
+                        args = list(mean = meanML, sd = sdML))
+  p1 + stat
+  
+  ########## Note
+  # For all of these curve fits, the expected arguments (parameters) will be defined 
+  # based on the fun="", which identifies the TYPE of fit
+  ######### End Note
+  
+  # use fit distr again to pull exponential fit parameters
+  expoPars <- fitdistr(z$yield,"exponential")
+  rateML <- expoPars$estimate["rate"]
+  #great additional curve based on exponential fit parameters, y values defined by args=exp fit parameter
+  stat2 <- stat_function(aes(x = xval, y = ..y..), 
+                         fun = dexp, colour="blue", 
+                         n = length(z$yield), 
+                         args = list(rate=rateML))
+  p1 + stat + stat2
+  
+  
+  #for uniform distribution-- fit distr unnecessary, min and max functions used instead
+  stat3 <- stat_function(aes(x = xval, y = ..y..), 
+                         fun = dunif, colour="darkgreen", 
+                         n = length(z$yield), 
+                         args = list(min=min(z$yield), max=max(z$yield)))
+  p1 + stat + stat2 + stat3
+  
+  
+  #for gamma probability density fit distr is needed to define shape and rate
+  gammaPars <- fitdistr(z$yield,"gamma")
+  shapeML <- gammaPars$estimate["shape"]
+  rateML <- gammaPars$estimate["rate"]
+  #plot using shape and rate within stat function
+  stat4 <- stat_function(aes(x = xval, y = ..y..), 
+                         fun = dgamma, colour="brown", 
+                         n = length(z$yield), 
+                         args = list(shape=shapeML, rate=rateML))
+  p1 + stat + stat2 + stat3 + stat4
+  #gamma probability density is most similar to the normal distribution
+  
+  
+  #plot beta probability
+  #first, create histogram of data prior to fitting beta curve
+  pSpecial <- ggplot(data=z, aes(x=yield/(max(yield + 0.1)), y=..density..)) +
+    geom_histogram(color="grey60",fill="cornsilk",size=0.2) + 
+    xlim(c(0,1)) + #dotted line represents empirical density
+    geom_density(size=0.75,linetype="dotted")
+  #use fit distr to access shape1 and shape2 for beta
+  betaPars <- fitdistr(x=z$yield/max(z$yield + 0.1),start=list(shape1=1,shape2=2),"beta")
+  shape1ML <- betaPars$estimate["shape1"]
+  shape2ML <- betaPars$estimate["shape2"]
+  # fit beta curve using shape1 and shape2
+  statSpecial <- stat_function(aes(x = xval, y = ..y..), 
+                               fun = dbeta, colour="orchid", 
+                               n = length(z$yield), 
+                               args = list(shape1=shape1ML,shape2=shape2ML))
+  pSpecial + statSpecial
+  
+
+  
+  
+  
+  

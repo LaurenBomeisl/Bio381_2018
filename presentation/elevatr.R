@@ -8,6 +8,7 @@
   library(rgdal)  # for transformation
   library(raster)  # for raster plotting
   library(lattice)  # for contour plotting
+  library(rasterVis)  # also for contour plotting
 
   # identify application programming interface for raster creation
   set_api_key("https://aws.amazon.com/public-datasets/terrain/")
@@ -93,12 +94,10 @@
   ############################################
   #Create Contour graphs using lattice
   contour<-contour(raster,nlevels=8)
-  contourplot(raster)
   
-  rasterContour <- raster + contour
-  
-  overlay(contour,raster,
-          fun <- function(x,y) {return(x+y)
+  library(rasterVis)
+  contourplot(raster,labels()
+
     
   })
   # you can imagine being able to add a temperature graph
@@ -118,6 +117,7 @@
   # Determine flowpath from highest point
      # create flow direction output to pass through flowpath
   flowdir<- terrain(raster,opt='flowdir')
+  print(flowdir)
   
     # query coordinate for maximum elevation
   maxpointx<-elev$x[which.max(elev$elevation)]
