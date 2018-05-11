@@ -125,6 +125,83 @@ $(document).ready(function () {
 </div>
 
 
+<pre class="r"><code>#prelims
+library(ggplot2)
+library(TeachingDemos)
+#set seed for recreatable results
+char2seed(&quot;P loss&quot;)
+
+#global variables
+nVal&lt;-20
+applied&lt;-runif(nVal,5,8)  # total p applied to calculate inefficiency
+
+# Read in functions
+
+#############################################
+# function: readData
+# read in or generate data frame
+# input: file name (or nothing for demo)
+# output: 3-column data frame of observed data (ID, x, y)
+
+readData &lt;- function(z=NULL){
+  if(is.null(z)) {
+    xVar &lt;- runif(nVal,2,5) #identify the x variable as P consumed
+    yVar &lt;- (applied-xVar)/applied #calculate p inefficiency
+    
+    dF &lt;- data.frame(ID=seq_along
+                     (xVar), xVar, yVar)} #close if statement
+    
+    return(dF)
+
+  } #close compound statement
+
+    ##############################
+    # function: getMetric
+    # calculate metric for randomization test
+    # input: 3-column data frame for regression
+  
+    getMetric &lt;- function(dframe=NULL){
+        
+      . &lt;- lm(dframe[,3]~dframe[,2])
+      . &lt;- summary(.)
+      . &lt;- .$coefficients[2,1]
+      slope &lt;- .
+      return(slope)
+      
+    }   #close compound statement
+
+  ################################################
+    # function: shuffleData
+    # randomize data for regression anlysis
+    # input: 3 column data frame (id, x, y)
+    # output: 3 column data frame (id, x, y)
+    
+    shuffleData &lt;- function(dframe=NULL){
+
+      dframe[,3] &lt;- sample(dframe[,3])
+      return(dframe)
+      
+    }   #close compound statement
+
+      #################################################
+    # function: getPVAL
+    # calculate p value for observed, simulated data
+    # input: list of observed metric and vector of simulated metric
+    # output: lower, upper tail probability vector
+    # --------------------------------------------
+    
+    
+    getPval &lt;- function(z=NULL) {
+            if(is.null(z)){
+              z &lt;- list(xObs=runif(1),xSim=runif(1000))}
+      
+      pLower &lt;- mean(z[[2]] &lt;=z[[1]])
+      pUpper &lt;- mean(z[[2]] &gt;=z[[1]])
+                     # double bracket operation identifies actual values, not rows or columns
+                     
+    return(c(pL=pLower,pU=pUpper))
+      
+    } </code></pre>
 <pre class="r"><code>    readData()</code></pre>
 <pre><code>##    ID     xVar       yVar
 ## 1   1 3.317115 0.41233636
