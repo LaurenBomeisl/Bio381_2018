@@ -53,6 +53,7 @@ Lauren is a first year PhD student working in Dr. Eric Roy's Nutrient Cycling an
 * Assignment 7/8: [Exploring a Hypothesis](Homework7.html)
 * Assignment 9: [Structured Programming](Homework9.html)
 * Assignment 10: [Batch Processing](Homework10.html)
+* Homework 11: [Randomization](Homework11.html)
 
 ##Nutrient Cycling and Ecological Design Lab
 [Check us out!](http://nced.weebly.com/)
